@@ -1,0 +1,58 @@
+File 1: generateQR.html (Generates QR code and displays data URI)
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generate QR Code as Data URI</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+</head>
+<body>
+
+<script>
+  function generateQRCodeAsDataURI(text) {
+    const qr = new QRious({
+      value: text,
+      size: 300,
+    });
+
+    // Convert the QR code to a data URI
+    const dataURI = qr.toDataURL();
+
+    return dataURI;
+  }
+
+  // Generate QR code for the specified URL
+  const url = "https://infotrust.com.au/";
+  const generatedDataURI = generateQRCodeAsDataURI(url);
+
+  // Display the generated data URI
+  console.log("Generated QR Code Data URI:");
+  console.log(generatedDataURI);
+  document.write("<pre>" + generatedDataURI + "</pre>");
+</script>
+
+</body>
+</html>
+This HTML file (generateQR.html) will generate the QR code for the specified URL and output the data URI in both the console and on the page.
+
+File 2: emailTemplate.html (Example email template)
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Template</title>
+</head>
+<body>
+
+<!-- Paste the generated data URI here -->
+<img src="/* PASTE GENERATED DATA URI HERE */" alt="QR Code in Email"/>
+
+</body>
+</html>
+After running generateQR.html in a browser, copy the generated data URI from the console or from the displayed output on the page. Then, paste this data URI into the <img> tag within the emailTemplate.html file to use it as an image in an email template.
