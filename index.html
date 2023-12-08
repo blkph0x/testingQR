@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Display as Data URI</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+</head>
+<body>
+
+<img id="qrcode" alt="QR Code will appear here"/>
+
+<script>
+  function generateQRCodeAsDataURI(text) {
+    const qr = new QRious({
+      value: text,
+      size: 300,
+    });
+
+    // Convert the QR code to a data URI
+    const dataURI = qr.toDataURL();
+
+    // Display the QR code as a data URI in an img tag
+    const img = document.getElementById('qrcode');
+    img.src = dataURI;
+  }
+
+  // Generate QR code for the specified URL
+  const url = "https://{ChnageMe.here/}";
+  generateQRCodeAsDataURI(url);
+</script>
+
+</body>
+</html>
